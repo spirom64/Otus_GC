@@ -15,12 +15,13 @@ import java.time.LocalDateTime;
 
 public class CalcDemo {
     public static void main(String[] args) {
-        long counter = 100_000_000;
+        long counter = 20_000_000_000L;
         var summator = new Summator();
         long startTime = System.currentTimeMillis();
 
-        for (var idx = 0; idx < counter; idx++) {
-            var data = new Data(idx);
+        Data data = new Data(0);
+        for (long idx = 0; idx < counter; idx++) {
+            data.setValue(idx);
             summator.calc(data);
 
             if (idx % 10_000_000 == 0) {
